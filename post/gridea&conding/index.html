@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>技术 | Gridea+Coding配置博客 | kongfang</title>
+<meta name="description" content="不管风吹浪打，胜似闲庭信步。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://cm4k3r.cn/favicon.ico?v=1628910607246">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://cm4k3r.cn/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://cm4k3r.cn">kongfang</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/firstpage" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>技术 | Gridea+Coding配置博客</h1>
+            <p class="article-meta">
+              2021-07-28
+              
+                <a href="https://cm4k3r.cn/tag/tech/" class="badge success">
+                  技术
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <p>用coding配置自己的gridea博客网站</p>
+<!-- more -->
+<h3 id="coding">Coding</h3>
+<p>新建devops项目<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⟶</mo></mrow><annotation encoding="application/x-tex">\longrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mrel">⟶</span></span></span></span>新建代码仓库+快速初始化+公开<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⟶</mo></mrow><annotation encoding="application/x-tex">\longrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mrel">⟶</span></span></span></span>持续部署-网站托管新建静态网站<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⟶</mo></mrow><annotation encoding="application/x-tex">\longrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mrel">⟶</span></span></span></span>部署</p>
+<h3 id="腾讯云域名">腾讯云域名</h3>
+<p>注册域名<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⟶</mo></mrow><annotation encoding="application/x-tex">\longrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mrel">⟶</span></span></span></span>实名认证<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⟶</mo></mrow><annotation encoding="application/x-tex">\longrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mrel">⟶</span></span></span></span>解析DNS：@ CNAME 默认 域名+cdn.dnsv1.com.<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⟶</mo></mrow><annotation encoding="application/x-tex">\longrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mrel">⟶</span></span></span></span>申请证书</p>
+<h3 id="配置gridea">配置Gridea</h3>
+<p>在远程中配置然后同步即可</p>
+<h3 id="部署云存储">部署云存储</h3>
+<p>若Gridea首页可以正常打开，下载坚果云，进入设置更改<strong>站点源文件路径</strong>到坚果云的存储目录下，以此实现<strong>多端数据同步</strong>，后面更换系统只需要下载坚果云和Gridea，将Gridea的<strong>站点源文件路径</strong>改为坚果云的存储目录下对应目录即可，数据不会丢失</p>
+<p>B站：https://www.bilibili.com/video/BV1dV41167HE</p>
+<p>CSDN：https://blog.csdn.net/qq_41376740/article/details/118336927</p>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://cm4k3r.cn/post/markdown&amp;latex/">
+                <h3 class="post-title">
+                  技术 | Markdown&amp;LaTeX
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://cm4k3r.cn/images/avatar.png?v=1628910607246" class="no-responsive avatar">
+    <div class="text-muted">不管风吹浪打，胜似闲庭信步。</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/tarjan/">算法 | Tarjan算法求割点</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/scanline/">算法 | 扫描线</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/eulersieve/">算法 | 线性筛(欧拉筛)</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/2021niuke4H/">算法 | 2021年牛客多校4H-Convolution</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/st/">算法 | ST表</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/sg/">算法 | 博弈论 SG函数</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/gridea&amp;conding/">技术 | Gridea+Coding配置博客</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/markdown&amp;latex/">技术 | Markdown&amp;LaTeX</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/firstpage/">随笔 | 第一篇博客</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://cm4k3r.cn/tag/algorithm/" class="badge success">
+          算法
+        </a>
+      
+        <a href="https://cm4k3r.cn/tag/tech/" class="badge ">
+          技术
+        </a>
+      
+        <a href="https://cm4k3r.cn/tag/note/" class="badge secondary">
+          随笔
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Yours (feat. WINTER of aespa) - Raiden
+<audio controls>
+<source src="/images/Yours.mp3">
+</audio><br/>
+<a href="cm4k3r.cn">kongfang</a> | <a class="rss" href="https://cm4k3r.cn/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>

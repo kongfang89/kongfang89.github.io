@@ -141,3 +141,9 @@ nav ul.inline li a {
         background: rgb(255,255,40);
       }
     
+      a{text-decoration:none;background-image:none;}
+a:link{color:#2F4F4F;}
+a:visited{color:#2F4F4F;}
+a:active{color:#2F4F4F;}
+a:hover{color:#008080;}
+    

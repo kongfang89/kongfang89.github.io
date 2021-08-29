@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cm4k3r.cn</id>
     <title>kongfang</title>
-    <updated>2021-08-29T15:29:13.099Z</updated>
+    <updated>2021-08-29T15:30:02.492Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cm4k3r.cn"/>
     <link rel="self" href="https://cm4k3r.cn/atom.xml"/>
@@ -11,14 +11,10 @@
     <icon>https://cm4k3r.cn/favicon.ico</icon>
     <rights>All rights reserved 2021, kongfang</rights>
     <entry>
-        <title type="html"><![CDATA[深度学习 | Anaconda+TensorFlow+Keras+OpenCV环境配置]]></title>
+        <title type="html"><![CDATA[深度学习 | TensorFlow+Keras环境配置]]></title>
         <id>https://cm4k3r.cn/post/tf-keras/</id>
         <link href="https://cm4k3r.cn/post/tf-keras/">
         </link>
         <updated>2021-08-29T15:27:22.000Z</updated>
-        <summary type="html"><![CDATA[<p>tensorflow+keras环境配置</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>tensorflow+keras环境配置</p>
-]]></content>
     </entry>
 </feed>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cm4k3r.cn</id>
     <title>kongfang</title>
-    <updated>2021-08-22T15:12:51.593Z</updated>
+    <updated>2021-08-29T15:29:13.099Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cm4k3r.cn"/>
     <link rel="self" href="https://cm4k3r.cn/atom.xml"/>
@@ -11,14 +11,14 @@
     <icon>https://cm4k3r.cn/favicon.ico</icon>
     <rights>All rights reserved 2021, kongfang</rights>
     <entry>
-        <title type="html"><![CDATA[算法 | 快速傅里叶变换(Fast Fourier Transform, FFT)]]></title>
-        <id>https://cm4k3r.cn/post/FFT/</id>
-        <link href="https://cm4k3r.cn/post/FFT/">
+        <title type="html"><![CDATA[深度学习 | Anaconda+TensorFlow+Keras+OpenCV环境配置]]></title>
+        <id>https://cm4k3r.cn/post/tf-keras/</id>
+        <link href="https://cm4k3r.cn/post/tf-keras/">
         </link>
-        <updated>2021-08-17T12:15:15.000Z</updated>
-        <summary type="html"><![CDATA[<p>快速傅里叶变换(FFT)可以加速多项式的乘法，也可以解决高精度乘法的问题(十进制数也可以视作多项式)</p>
+        <updated>2021-08-29T15:27:22.000Z</updated>
+        <summary type="html"><![CDATA[<p>tensorflow+keras环境配置</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>快速傅里叶变换(FFT)可以加速多项式的乘法，也可以解决高精度乘法的问题(十进制数也可以视作多项式)</p>
+        <content type="html"><![CDATA[<p>tensorflow+keras环境配置</p>
 ]]></content>
     </entry>
 </feed>

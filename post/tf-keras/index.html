@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>深度学习 | Anaconda+TensorFlow+Keras+OpenCV环境配置 | kongfang</title>
+<meta name="description" content="不管风吹浪打，胜似闲庭信步。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://cm4k3r.cn/favicon.ico?v=1630250950966">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://cm4k3r.cn/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://cm4k3r.cn">kongfang</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/firstpage" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>深度学习 | Anaconda+TensorFlow+Keras+OpenCV环境配置</h1>
+            <p class="article-meta">
+              2021 29th August 23:27 Sunday
+              
+                <a href="https://cm4k3r.cn/tag/DL/" class="badge secondary">
+                  深度学习
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <p>tensorflow+keras环境配置</p>
+<!-- more -->
+<h3 id="一-软件环境">一、软件环境</h3>
+<p><a href="https://developer.nvidia.com/cuda-10.1-download-archive-base?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exelocal">cuda-10.1</a>：打开选择自定义安装</p>
+<p><a href="https://pan.baidu.com/s/1s-GpzQ-tQ2oWtsg3qKGPDw">cudnn-7.6.5.32</a>  ica5：将解压后的所有文件放到C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1目录下</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe">Anaconda-2019.10-win64</a>：太新或太旧的版本容易出问题，安装时记得勾选PATH</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/0e/08/dab39e396a38affb13d6daf421066203695d91c2c3197f753fa84bbac8bd/opencv_python-4.5.3.56-cp37-cp37m-win_amd64.whl#sha256=7f41b97d84ac66bdf13cb4d9f4dad3e159525ba1e3f421e670c787ce536eb70a">opencv-4.5.3-cp37-win64</a>：whl文件</p>
+<h3 id="二-命令行">二、命令行</h3>
+<ol start="0">
+<li>
+<p>安装好Anaconda后（建议都执行一遍）</p>
+<p>管理员运行<strong>conda prompt</strong></p>
+<pre><code>conda update anaconda-navigator
+anaconda-navigator --reset
+conda update anaconda-client
+conda update -f anaconda-client
+conda update --all
+</code></pre>
+</li>
+<li>
+<p>打开cmd</p>
+<pre><code>conda create –n tf python=3.7
+activate tf
+pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade tensorflow-gpu==2.2.0
+pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade keras==2.3.1
+cd opencv的whl文件所在目录
+pip install opencv_python-4.5.3.56-cp37-cp37m-win_amd64.whl
+</code></pre>
+</li>
+<li>
+<p>打开Anaconda图形界面，安装<strong>scikit-learn</strong>和<strong>notebook</strong></p>
+</li>
+</ol>
+<h3 id="三-测试环境">三、测试环境</h3>
+<p>打开jupyter notebook</p>
+<p>创建新文件，依次运行以下代码，记得把训练和测试的数据集放到代码所在目录</p>
+<p>1.调用库和加载数据集和定义所需函数</p>
+<pre><code class="language-python">import numpy as np
+import random
+import os
+import glob
+import cv2
+
+import tensorflow.keras
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Flatten
+from tensorflow.keras.models import load_model
+from tensorflow.keras.applications.vgg16 import VGG16
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
+from sklearn import metrics
+
+width = 64
+height = 64
+channel = 3
+train_ratio = 0.8
+crop_size = (60, 60)
+crop_ratio = 0.5
+lr = 0.03
+batch = 32
+epoch = 50
+patienceEpoch = 3
+size = width, height
+
+# 获取路径下各个分类文件夹的图片名称及标签
+def CountFiles(path):
+    # 创建存放图片路径和对应分类标签的列表
+    files = []
+    labels = []
+    path = os.path.abspath(path)
+    # 获取path下所有分类文件夹
+    subdirs = os.listdir(path)
+    subdirs.sort()
+    # 遍历所有分类文件夹下的图片
+    for index in range(len(subdirs)):
+        subdir = os.path.join(path,subdirs[index])
+        # 输出分类对应的数字标签
+        print(&quot;label --&gt; dir : {} --&gt; {}&quot;.format(index,subdirs))
+        # 获取图像路径及对应标签
+        for image_name in glob.glob(&quot;{}/*.jpg&quot;.format(subdir)):
+            files.append(image_name)
+            labels.append(index)
+    # 将标签与数值对应输出
+    return files, labels, len(subdirs)
+
+# 调用CountFiles函数
+files, labels, clazz = CountFiles(r&quot;./dataset-resized/&quot;)
+
+# 备份
+labels_image_operation=labels
+files_image_operation=files
+
+# 绑定路径与标签，并打乱
+c = list(zip(files, labels))
+random.shuffle(c)
+files, labels = zip(*c)
+
+# 将标签转为One-Hot码
+labels = np.array(labels)
+labels = tensorflow.keras.utils.to_categorical(labels,clazz)
+
+print(labels)
+
+# 图像预处理
+def LoadImage(image_path):
+    img = cv2.imread(image_path)
+    # 缩放
+    img = cv2.resize(img, dsize=size, interpolation=cv2.INTER_AREA)
+    img=img.astype(&quot;float32&quot;)/255.0
+
+    # 翻转
+    if random.random()&lt;crop_ratio:
+        img_copy=img.copy()
+        tmp=random.random()
+        if tmp&lt;0.3:
+            img_copy=cv2.flip(img_copy,1,dst=None)
+        elif tmp&lt;0.6:
+            img_copy=cv2.flip(img_copy,0,dst=None)
+        else:
+            img_copy=cv2.flip(img_copy,-1,dst=None)
+        img=img_copy
+        
+    # 反色
+    img=1.0-img
+    
+    # 剪裁
+    if random.random() &lt; crop_ratio:
+        img_copy = img.copy()
+
+        x = random.randint(0, img.shape[0] - crop_size[0] - 1)
+        y = random.randint(0, img.shape[1] - crop_size[1] - 1)
+        img_copy = img_copy[x:x+crop_size[0], y:y+crop_size[1], :]
+        img_copy = cv2.resize(img_copy, dsize = size, interpolation = cv2.INTER_AREA)
+        img = img_copy    
+    
+    return np.array(img)
+
+# 图像生成器
+def LoadImageGen(files_r, labels_r, batch=16, label=&quot;label&quot;):
+    start = 0
+    while start &lt; len(files_r):
+        stop = start + batch
+        if stop &gt; len(files_r):
+            stop = len(files_r)
+        imgs = []
+        lbs = []
+        for i in range(start, stop):
+            imgs.append(LoadImage(files_r[i]))
+            lbs.append(labels_r[i])
+        yield (np.array(imgs), np.array(lbs))
+        if start + batch &lt; len(files_r):
+            start += batch
+        else:
+            c = list(zip(files_r, labels_r))
+            random.shuffle(c)
+            files_r, labels_r = zip(*c)
+            start = 0
+</code></pre>
+<p>2.训练</p>
+<pre><code class="language-python"># 划分训练集与测试集
+train_num = int(train_ratio * len(files))
+
+train_x, train_y = files[:train_num], labels[:train_num]  # 划分训练数据
+test_x, test_y = files[train_num:], labels[train_num:]  # 划分测试数据
+
+# 创建VGG16层
+vgg_model=VGG16(weights='imagenet',include_top=False, input_shape=(width,height,channel))
+# 创建全连接层
+dense_model=Sequential()
+dense_model.add(Flatten())
+dense_model.add(Dense(16, activation='relu'))
+dense_model.add(Dense(clazz, activation='softmax'))
+
+# 合并卷积层与全连接层
+model=Sequential()
+model.add(vgg_model)
+model.add(dense_model)
+
+# 编译模型
+model.compile(loss=tensorflow.keras.losses.categorical_crossentropy,
+              optimizer=tensorflow.keras.optimizers.Adadelta(lr=lr, decay=0.),
+              metrics=['acc'])
+
+# 调用checkpoint
+modelCheckpoint = ModelCheckpoint(filepath=&quot;./vggmodel_{epoch:02d}.hdf5&quot;, verbose = 1, save_best_only=True)
+print(&quot;\nclass num : {}, train num: {}, test num: {}, batch : {}&quot;.format(clazz, len(train_x), len(test_x), batch))
+
+# 训练模型
+model.fit_generator(
+    LoadImageGen(train_x, train_y, batch=batch, label = &quot;train&quot;),
+    steps_per_epoch=int(len(train_x)/batch),
+    epochs = epoch,
+    verbose = 1,
+    validation_data=LoadImageGen(test_x, test_y, batch=batch, label=&quot;test&quot;),
+    validation_steps = int(len(test_x) / batch),
+    callbacks=[(EarlyStopping(monitor='acc',patience=patienceEpoch)),modelCheckpoint]
+)
+</code></pre>
+<p>3.测试</p>
+<pre><code class="language-python"># 加载模型
+model = load_model(&quot;vggmodel_09.hdf5&quot;)
+LABEL={0:&quot;cardboard&quot;,1:&quot;glass&quot;,2:&quot;metal&quot;,3:&quot;paper&quot;,4:&quot;plastic&quot;,5:&quot;trash&quot;}
+
+# 获取测试集的正确标签及预测标签
+testfiles, trueLabel, clazz = CountFiles(r&quot;./testdata&quot;)
+predictLabel=[]
+
+for img in testfiles:
+    img = LoadImage(img)
+    res = np.argmax(model.predict(np.array([img])))
+    predictLabel.append(res)
+for i in range(len(testfiles)):
+    trueLabel[i]=LABEL[trueLabel[i]]
+    predictLabel[i]=LABEL[predictLabel[i]]
+    
+# 计算 precision、recall、F1 值
+precision = round(metrics.precision_score(trueLabel, predictLabel, average=&quot;macro&quot;),4)
+recall = round(metrics.recall_score(trueLabel, predictLabel, average=&quot;macro&quot;),4)
+F1 = round(metrics.f1_score(trueLabel, predictLabel, average=&quot;macro&quot;),4)
+
+# 输出 precision、recall、F1 值
+print(precision,recall,F1)
+</code></pre>
+<p>全部执行完毕无报错即可</p>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                Next Article
+              </div>
+              <a href="https://cm4k3r.cn/post/FFT/">
+                <h3 class="post-title">
+                  算法 | 快速傅里叶变换(Fast Fourier Transform, FFT)
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://cm4k3r.cn/images/avatar.png?v=1630250950966" class="no-responsive avatar">
+    <div class="text-muted">不管风吹浪打，胜似闲庭信步。</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      The Latest Article
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/tf-keras/">深度学习 | Anaconda+TensorFlow+Keras+OpenCV环境配置</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/FFT/">算法 | 快速傅里叶变换(Fast Fourier Transform, FFT)</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/multi-inv/">算法 | 乘法逆元及其计算</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/LCA-doubling/">算法 | 最近公共祖先LCA(倍增实现)</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/tarjan/">算法 | Tarjan算法求割点</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/scanline/">算法 | 扫描线</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/eulersieve/">算法 | 线性筛(欧拉筛)</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/2021niuke4H/">算法 | 2021年牛客多校4H-Convolution</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/st/">算法 | ST表</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://cm4k3r.cn/post/sg/">算法 | 博弈论 SG函数</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      Tags List
+    </div>
+    <div class="row">
+      
+        <a href="https://cm4k3r.cn/tag/DL/" class="badge ">
+          深度学习
+        </a>
+      
+        <a href="https://cm4k3r.cn/tag/algorithm/" class="badge secondary">
+          算法
+        </a>
+      
+        <a href="https://cm4k3r.cn/tag/tech/" class="badge secondary">
+          技术
+        </a>
+      
+        <a href="https://cm4k3r.cn/tag/note/" class="badge warning">
+          随笔
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    <a href="https://c.y.qq.com/base/fcgi-bin/u?__=KWEtWN4l" target="_blank">&nbsp;Yours (feat. WINTER of aespa) - Raiden</a>
+<img src="/images/WINTER.jpg" width="300" height="300"/>
+<audio controls>
+<source src="/images/Yours.mp3">
+</audio><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">kongfang</a> | <a class="rss" href="https://cm4k3r.cn/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>

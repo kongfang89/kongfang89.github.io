@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>随笔 | 第一篇博客 | kongfang</title>
+<title>算法 | 字典树(Trie树) | kongfang</title>
 <meta name="description" content="不管风吹浪打，胜似闲庭信步。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,54 +81,147 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>随笔 | 第一篇博客</h1>
+            <h1>算法 | 字典树(Trie树)</h1>
             <p class="article-meta">
-              2021 28th July 16:21 Wednesday
+              2021 1st September 23:55 Wednesday
               
-                <a href="https://cm4k3r.cn/tag/note/" class="badge success">
-                  随笔
+                <a href="https://cm4k3r.cn/tag/algorithm/" class="badge ">
+                  算法
                 </a>
               
             </p>
             
             <div class="post-content">
-              <p>纪念博客诞生&amp;INTRO</p>
+              <p>字典树(Trie树)可以快速查找字或单词的信息</p>
 <!-- more -->
-<h3 id="thinking">Thinking</h3>
-<p>第一次写博客，初衷是记录一些生活琐事和学习笔记，打发闲暇之余，给未来的自己一些回忆。</p>
-<hr>
-<h3 id="myself">Myself</h3>
-<p>孔方(cm4k3r)，19岁，男，蒟蒻大学生，乐于内卷却没卷出什么成绩。</p>
+<h3 id="一-概念">一、概念</h3>
+<p>字典树(Trie树)是一种存字或单词信息的数据结构，可以快速查找字或单词的信息，树上的边通常存放数字或字母等字符信息，而从根节点到叶子节点的所有字符连起来通常是单词这类信息。</p>
+<h3 id="二-算法原理">二、算法原理</h3>
+<p>经典字典树主要有两种操作：</p>
+<ol>
+<li>插入一个单词到集合中</li>
+<li>查询单词是否在集合中</li>
+</ol>
+<h4 id="具体实现">具体实现</h4>
 <ol>
 <li>
-<p>achievements</p>
-<ul>
-<li>辩论冠军*3(600人 1000人 30000人)：能打一二三辩但是只打四辩，13连胜未尝一败，已退役</li>
-<li>省赛国赛一等奖若干：拿奖的时候都很开心，过后就没感觉了(所以还要拿多点！)</li>
-<li>绩点之王(wc，卷！)</li>
-</ul>
+<p>插入单词</p>
+<p>从单词第一个字母开始，判断树上的根是否有到该字母的边，如果没有就新建一条边和一个节点，并给节点编号；然后更新根为该字母的编号，对剩余字母逐个进行上述操作。操作完后给最后一个字母的编号记录一下访问标记bool。</p>
 </li>
 <li>
-<p>hobbies</p>
-<ul>
-<li>韩国女团博爱粉：唱歌好听跳舞好看的美女谁不爱呢！</li>
-<li>历史萌新：早年混迹历史吧，喜欢明史、欧洲史、近代史、党史(公众号：孔方读书)</li>
-<li>读者：有时读很多书，有时很懈怠</li>
-<li>好奇：有趣的玩意都想了解，知识面广而不精</li>
-<li>影视：喜欢有内涵的艺术作品</li>
-<li>棋牌学家：无论经典还是流行，大部分棋牌游戏都会，牌打得好，棋下得烂</li>
-<li>人民群众：坚决拥护社会主义！人民万岁！</li>
-</ul>
+<p>查询单词</p>
+<p>从单词第一个字母开始，判断树上的根是否有到该字母的边，如果没有就是该单词不在集合中，如果有就更新根为该字母编号，继续查询下一个字母。</p>
 </li>
 </ol>
-<hr>
-<h3 id="结语">结语</h3>
-<p>暂时写到这吧，纪念一下博客成功部署！</p>
+<h3 id="三-代码">三、代码</h3>
+<p><a href="https://www.luogu.com.cn/problem/P3879">P3879 阅读理解</a></p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+#define INF 99999999
+#define LINF LLONG_MAX 
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+const int MAX_N=1010;
+//输入 
+int n,m;
+char s[MAX_N];
+//节点数 
+int tot;
+//trie[i][j]表示第i个单词的第j个字母的编号 
+int trie[300010][25];
+//bool数组：b[i][j]表示以i结尾的是单词，且是第j篇文章的单词 
+bitset&lt;MAX_N&gt; b[500010];
+//插入单词s 
+inline void insert(char *s,int x){
+	int root=0;
+	//遍历单词的每个字母
+	for(int i=0;s[i];i++){ 
+		int v=s[i]-'a';
+		//如果当前无编号，编号
+		if(!trie[root][v])
+			trie[root][v]=++tot;
+		//移动root到新编号 
+		root=trie[root][v];
+	}
+	//记录最后编号的篇数为1 
+	b[root][x]=1;
+}
+//查询单词 
+inline void query(char *s){
+	int root=0;
+	for(int i=0;s[i];i++){
+		int v=s[i]-'a';
+		if(!trie[root][v]){
+			cout&lt;&lt;&quot; \n&quot;;
+			return;
+		}
+		root=trie[root][v];
+	}
+	for(int i=1;i&lt;=n;i++)
+		if(b[root][i]==1)
+			cout&lt;&lt;i&lt;&lt;' ';
+	cout&lt;&lt;'\n';
+}
+
+int main(){
+	freopen(&quot;1.in&quot;,&quot;r&quot;,stdin);
+	ios_base::sync_with_stdio(false);
+	cout.tie(0);
+	cin.tie(0);
+	//freopen(&quot;1.out&quot;,&quot;w&quot;,stdout);
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++){
+		int k;
+		cin&gt;&gt;k;
+		for(int j=1;j&lt;=k;j++){
+			cin&gt;&gt;s;
+			insert(s,i);
+		}
+	}
+	cin&gt;&gt;m;
+	for(int i=1;i&lt;=m;i++){
+		cin&gt;&gt;s;
+		query(s);
+	}
+	return 0;
+}
+
+/*
+样例
+3
+9 you are a good boy ha ha o yeah
+13 o my god you like bleach naruto one piece and so do i
+11 but i do not think you will get all the points
+5
+you
+i
+o
+all
+naruto
+输出
+1 2 3
+2 3
+1 2
+3
+2
+*/
+</code></pre>
 
             </div>
           </article>
         </div>
         <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                Next Article
+              </div>
+              <a href="https://cm4k3r.cn/post/tf-keras/">
+                <h3 class="post-title">
+                  深度学习 | TensorFlow+Keras环境配置
+                </h3>
+              </a>
+            </div>
           
         </div>
         
@@ -244,7 +337,7 @@
           深度学习
         </a>
       
-        <a href="https://cm4k3r.cn/tag/tech/" class="badge ">
+        <a href="https://cm4k3r.cn/tag/tech/" class="badge success">
           技术
         </a>
       

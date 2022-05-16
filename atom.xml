@@ -2,16 +2,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cm4k3r.cn</id>
     <title>kongfang</title>
-    <updated>2021-10-08T10:52:32.573Z</updated>
+    <updated>2022-05-16T10:11:06.547Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cm4k3r.cn"/>
     <link rel="self" href="https://cm4k3r.cn/atom.xml"/>
     <subtitle>不管风吹浪打，胜似闲庭信步。</subtitle>
     <logo>https://cm4k3r.cn/images/avatar.png</logo>
     <icon>https://cm4k3r.cn/favicon.ico</icon>
-    <rights>All rights reserved 2021, kongfang</rights>
+    <rights>All rights reserved 2022, kongfang</rights>
     <entry>
-        <title type="html"><![CDATA[算法 Prufer数列]]></title>
+        <title type="html"><![CDATA[算法 | Prufer数列]]></title>
         <id>https://cm4k3r.cn/post/prufer/</id>
         <link href="https://cm4k3r.cn/post/prufer/">
         </link>

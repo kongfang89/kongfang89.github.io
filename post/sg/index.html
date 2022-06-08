@@ -1,98 +1,108 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>算法 | 博弈论 SG函数 | kongfang</title>
-<meta name="description" content="不管风吹浪打，胜似闲庭信步。">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://kongfang89.github.io/favicon.ico?v=1654706508721">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://kongfang89.github.io/favicon.ico?v=1654711727234">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://kongfang89.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="算法 | 博弈论 SG函数 | kongfang - Atom Feed" href="https://kongfang89.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+    <meta name="description" content="博弈论重要定理——SG定理
+
+一、概念
 
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+组合游戏 (Impartial Combinatorial Games, ICG)
 
-
+Alice Bob玩
+轮流进行规定的合法操作
+对于任何局面，合法的操作仅仅取决于这个局面，与选手无关
+若无法继..." />
+    <meta name="keywords" content="算法" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://kongfang89.github.io">kongfang</a></h3>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://kongfang89.github.io">
+  <img class="avatar" src="https://kongfang89.github.io/images/avatar.png?v=1654711727234" alt="">
+  </a>
+  <h1 class="site-title">
+    kongfang
+  </h1>
+  <p class="site-description">
+    不管风吹浪打，胜似闲庭信步。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/firstpage" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        
-          <li>
-            
-              <a href="/" class="menu">
-                首页
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/archives" class="menu">
-                归档
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/post/firstpage" class="menu">
-                关于
-              </a>
-            
-          </li>
-        
-      </ul>
-    </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   </div>
-</nav>
+</div>
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>算法 | 博弈论 SG函数</h1>
-            <p class="article-meta">
-              2021 29th July 17:05 Thursday
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              算法 | 博弈论 SG函数
+            </h2>
+            <div class="post-info">
+              <span>
+                2021 29th July 17:05 Thursday
+              </span>
+              <span>
+                3 min read
+              </span>
               
-                <a href="https://kongfang89.github.io/tag/algorithm/" class="badge secondary">
-                  算法
+                <a href="https://kongfang89.github.io/tag/algorithm/" class="post-tag">
+                  # 算法
                 </a>
               
-            </p>
+            </div>
             
-            <div class="post-content">
-              <p>博弈论重要定理——SG定理</p>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>博弈论重要定理——SG定理</p>
 <!-- more -->
 <h3 id="一-概念">一、概念</h3>
 <ol>
@@ -167,174 +177,107 @@ void getSG(int n){
 <li><a href="https://www.luogu.com.cn/problem/P2252">P2252</a> 威佐夫博弈</li>
 </ul>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E6%A6%82%E5%BF%B5">一、概念</a><br>
+*
+<ul>
+<li><a href="#%E6%80%A7%E8%B4%A8">性质</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-sg%E5%AE%9A%E7%90%86">二、SG定理</a></li>
+<li><a href="#%E4%B8%89-sg%E5%87%BD%E6%95%B0">三、SG函数</a><br>
+*
+<ul>
+<li><a href="#%E5%AE%9A%E4%B9%89">定义：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF">四、代码模板</a></li>
+<li><a href="#%E4%BA%94-%E9%A2%98%E5%8D%95">五、题单</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
           </article>
         </div>
-        <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                Next Article
-              </div>
-              <a href="https://kongfang89.github.io/post/gridea&amp;conding/">
-                <h3 class="post-title">
-                  技术 | Gridea+Coding配置博客
-                </h3>
-              </a>
-            </div>
-          
-        </div>
-        
-      </div>
 
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://kongfang89.github.io/images/avatar.png?v=1654706508721" class="no-responsive avatar">
-    <div class="text-muted">不管风吹浪打，胜似闲庭信步。</div>
-    <div class="social-container">
-      
         
-      
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://kongfang89.github.io/post/gridea&amp;conding/">
+              <h3 class="post-title">
+                技术 | Gridea+Coding配置博客
+              </h3>
+            </a>
+          </div>
         
-      
+
         
-      
-        
-      
-        
-      
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      The Latest Article
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://kongfang89.github.io/post/prufer/">算法 | Prufer数列</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kongfang89.github.io/post/trie/">算法 | 字典树(Trie树)</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kongfang89.github.io/post/tf-keras/">深度学习 | TensorFlow+Keras环境配置</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kongfang89.github.io/post/FFT/">算法 | 快速傅里叶变换(Fast Fourier Transform, FFT)</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kongfang89.github.io/post/multi-inv/">算法 | 乘法逆元及其计算</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kongfang89.github.io/post/LCA-doubling/">算法 | 最近公共祖先LCA(倍增实现)</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kongfang89.github.io/post/tarjan/">算法 | Tarjan算法求割点</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kongfang89.github.io/post/scanline/">算法 | 扫描线</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kongfang89.github.io/post/eulersieve/">算法 | 线性筛(欧拉筛)</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kongfang89.github.io/post/2021niuke4H/">算法 | 2021年牛客多校4H-Convolution</a>
-            </li>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      Tags List
-    </div>
-    <div class="row">
-      
-        <a href="https://kongfang89.github.io/tag/algorithm/" class="badge warning">
-          算法
-        </a>
-      
-        <a href="https://kongfang89.github.io/tag/DL/" class="badge warning">
-          深度学习
-        </a>
-      
-        <a href="https://kongfang89.github.io/tag/tech/" class="badge success">
-          技术
-        </a>
-      
-        <a href="https://kongfang89.github.io/tag/note/" class="badge ">
-          随笔
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    <a href="https://c.y.qq.com/base/fcgi-bin/u?__=KWEtWN4l" target="_blank">&nbsp;Yours (feat. WINTER of aespa) - Raiden</a>
+
+        <div class="site-footer">
+  <a href="https://c.y.qq.com/base/fcgi-bin/u?__=KWEtWN4l" target="_blank">&nbsp;Yours (feat. WINTER of aespa) - Raiden</a>
 <img src="/images/WINTER.jpg" width="300" height="300"/>
 <audio controls>
 <source src="/images/Yours.mp3">
 </audio><br/>
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">kongfang</a> | <a class="rss" href="https://kongfang89.github.io/atom.xml" target="_blank">RSS</a>
-  </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">kongfang</a>
+  <a class="rss" href="https://kongfang89.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
 </div>
 
-
+      </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad()
 
-<script type="application/javascript">
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-AOS.init();
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-hljs.initHighlightingOnLoad()
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
-</script>
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-
-
-
+    </script>
   </body>
 </html>

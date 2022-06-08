@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://gridea-henna.vercel.app</id>
+    <id>https://cm4k3r.githubt.io</id>
     <title>kongfang</title>
-    <updated>2022-06-08T15:15:09.485Z</updated>
+    <updated>2022-06-08T15:17:59.831Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://gridea-henna.vercel.app"/>
-    <link rel="self" href="https://gridea-henna.vercel.app/atom.xml"/>
+    <link rel="alternate" href="https://cm4k3r.githubt.io"/>
+    <link rel="self" href="https://cm4k3r.githubt.io/atom.xml"/>
     <subtitle>不管风吹浪打，胜似闲庭信步。</subtitle>
-    <logo>https://gridea-henna.vercel.app/images/avatar.png</logo>
-    <icon>https://gridea-henna.vercel.app/favicon.ico</icon>
+    <logo>https://cm4k3r.githubt.io/images/avatar.png</logo>
+    <icon>https://cm4k3r.githubt.io/favicon.ico</icon>
     <rights>All rights reserved 2022, kongfang</rights>
     <entry>
         <title type="html"><![CDATA[算法 | Prufer数列]]></title>
-        <id>https://gridea-henna.vercel.app/post/prufer/</id>
-        <link href="https://gridea-henna.vercel.app/post/prufer/">
+        <id>https://cm4k3r.githubt.io/post/prufer/</id>
+        <link href="https://cm4k3r.githubt.io/post/prufer/">
         </link>
         <updated>2021-10-07T07:37:55.000Z</updated>
     </entry>

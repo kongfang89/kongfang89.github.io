@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cm4k3r.cn</id>
     <title>kongfang</title>
-    <updated>2022-06-09T07:02:58.685Z</updated>
+    <updated>2022-06-17T17:28:56.705Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cm4k3r.cn"/>
     <link rel="self" href="https://cm4k3r.cn/atom.xml"/>
@@ -11,14 +11,14 @@
     <icon>https://cm4k3r.cn/favicon.ico</icon>
     <rights>All rights reserved 2022, kongfang</rights>
     <entry>
-        <title type="html"><![CDATA[算法 | Prufer数列]]></title>
-        <id>https://cm4k3r.cn/post/prufer/</id>
-        <link href="https://cm4k3r.cn/post/prufer/">
+        <title type="html"><![CDATA[算法 | 一千题补题计划(1/1000) CF1689E-ANDfinity]]></title>
+        <id>https://cm4k3r.cn/post/qiantijihua1/</id>
+        <link href="https://cm4k3r.cn/post/qiantijihua1/">
         </link>
-        <updated>2021-10-07T07:37:55.000Z</updated>
-        <summary type="html"><![CDATA[<p>Prufer数列常用来解决树上计数问题。</p>
+        <updated>2022-06-17T17:21:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>Codeforces Round #798 (Div. 2) E. ANDfinity 题解</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>Prufer数列常用来解决树上计数问题。</p>
+        <content type="html"><![CDATA[<p>Codeforces Round #798 (Div. 2) E. ANDfinity 题解</p>
 ]]></content>
     </entry>
 </feed>

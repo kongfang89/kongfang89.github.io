@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cm4k3r.cn</id>
     <title>kongfang</title>
-    <updated>2022-06-18T21:49:07.830Z</updated>
+    <updated>2022-06-18T21:50:57.884Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cm4k3r.cn"/>
     <link rel="self" href="https://cm4k3r.cn/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://cm4k3r.cn/favicon.ico</icon>
     <rights>All rights reserved 2022, kongfang</rights>
     <entry>
-        <title type="html"><![CDATA[算法 | 一千题补题计划(2) CF1670E-Hemose on the Tree]]></title>
+        <title type="html"><![CDATA[算法 | 一千题补题计划(2/1000) CF1670E-Hemose on the Tree]]></title>
         <id>https://cm4k3r.cn/post/yiqiantibutijihua2/</id>
         <link href="https://cm4k3r.cn/post/yiqiantibutijihua2/">
         </link>

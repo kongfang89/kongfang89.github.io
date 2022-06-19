@@ -1,0 +1,386 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>算法 | 一千题补题计划(4/1000) CF1695D1D2-Tree Queries | kongfang</title>
+<link rel="shortcut icon" href="https://cm4k3r.cn/favicon.ico?v=1655674720601">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cm4k3r.cn/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="算法 | 一千题补题计划(4/1000) CF1695D1D2-Tree Queries | kongfang - Atom Feed" href="https://cm4k3r.cn/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Codeforces Round #801 (Div. 2) D1D2. Tree Queries 题解
+
+D1. Tree Queries (Easy Version)
+D2. Tree Queries (Hard Version)
+题意..." />
+    <meta name="keywords" content="算法" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://cm4k3r.cn">
+  <img class="avatar" src="https://cm4k3r.cn/images/avatar.png?v=1655674720601" alt="">
+  </a>
+  <h1 class="site-title">
+    kongfang
+  </h1>
+  <p class="site-description">
+    不管风吹浪打，胜似闲庭信步。——李德胜
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="/post/firstpage" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              算法 | 一千题补题计划(4/1000) CF1695D1D2-Tree Queries
+            </h2>
+            <div class="post-info">
+              <span>
+                2022 20th June 05:37 Monday
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://cm4k3r.cn/tag/algorithm/" class="post-tag">
+                  # 算法
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>Codeforces Round #801 (Div. 2) D1D2. Tree Queries 题解</p>
+<!-- more -->
+<p><a href="https://codeforces.com/contest/1695/problem/D1">D1. Tree Queries (Easy Version)</a></p>
+<p><a href="https://codeforces.com/contest/1695/problem/D2">D2. Tree Queries (Hard Version)</a></p>
+<h4 id="题意">题意</h4>
+<p>给定一棵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个节点的无根树，你需要选择<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>个节点，使得在得知任意节点到这<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>个节点的路径边数后，可以确定该节点的编号，求最小的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>值。</p>
+<p>输入：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mo separator="true">,</mo><mi>n</mi><mo separator="true">,</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>(</mo><mn>1</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mo>(</mo><mn>2000</mn><mo>−</mo><mi>e</mi><mi>a</mi><mi>s</mi><mi>y</mi><mi mathvariant="normal">/</mi><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup><mo>−</mo><mi>h</mi><mi>a</mi><mi>r</mi><mi>d</mi><mo>)</mo><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>≤</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">t,n,x,y(1\leq t\leq 10^4,1\leq n\leq (2000-easy/2\times10^5-hard),1\leq x,y\leq n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord">/</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">d</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p>输出：最小需要选择多少个节点能确定所有节点</p>
+<h4 id="思路">思路</h4>
+<p>对于任意节点，其子树最多只能有一棵完全不选择节点。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>f</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">dfs</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">s</span></span></span></span>遍历从根出发，遍历每个节点时，加上其所有子树答案，同时统计其子树答案为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>的棵树(完全不选择节点的子树)，再加上棵数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>(只有一棵能完全不选择节点)，即</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>n</mi><mi>s</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo>=</mo><mo>∑</mo><mi>a</mi><mi>n</mi><mi>s</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>+</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo>(</mo><mn>0</mn><mo separator="true">,</mo><mi>c</mi><mi>n</mi><mi>t</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo separator="true">,</mo><mi>i</mi><mo>∈</mo><mi>G</mi><mo>[</mo><mi>x</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">ans[x]=\sum ans[i]+max(0,cnt-1),i\in G[x]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">G</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span></span></span></span></p>
+<p>简单版：枚举每个节点作为根的情况进行树上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>，最后加上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，即根自己。</p>
+<p>困难版：枚举任意一个度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\geq3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span>的节点作为根的情况进行树上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>，因为该节点有两棵子树中有选择的节点，所以根不需要被选择；如果没有度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\geq3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span>的节点，只需要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个选择点即可(二叉树)。</p>
+<p><strong>复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mi>n</mi></msup><mo>)</mo><mo>−</mo><mi>e</mi><mi>a</mi><mi>s</mi><mi>y</mi><mo separator="true">,</mo><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>−</mo><mi>h</mi><mi>a</mi><mi>r</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">O(n^n)-easy,O(n)-hard</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">d</span></span></span></span></strong></p>
+<h4 id="代码">代码</h4>
+<h5 id="d1-easy-ver">D1 easy ver.</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define INF INT_MAX
+#define LINF LLONG_MAX 
+#define endl '\n' 
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+const int MAX_N = 2010;
+
+int T;
+int n;
+vector&lt;int&gt; G[MAX_N]; 
+
+int dfs(int u,int fa){
+	int s=0,cnt=0;
+	for(auto i:G[u]){
+		if(i==fa)
+			continue;
+		int res=dfs(i,u);
+		s+=res;
+		//统计子树个数 
+		if(res==0)
+			cnt++;
+	}
+	//返回所有子树和+子树个数-1（因为只能有一个子树不放结点 
+	return s+max(0,cnt-1);
+}
+
+int main(){
+	freopen(&quot;1.in&quot;, &quot;r&quot;, stdin);
+	ios_base::sync_with_stdio(false);
+	cout.tie(0);
+	cin.tie(0);
+	//freopen(&quot;1.out&quot;, &quot;w&quot;, stdout);
+	cin&gt;&gt;T;
+	while(T--){
+		cin&gt;&gt;n;
+		for(int i=1;i&lt;=n;i++)
+			G[i].clear();
+		for(int i=1;i&lt;n;i++){
+			int u,v;
+			cin&gt;&gt;u&gt;&gt;v;
+			G[u].push_back(v);
+			G[v].push_back(u);
+		}
+		if(n==1){
+			cout&lt;&lt;0&lt;&lt;'\n';
+			continue;
+		}
+		int ans=n;
+		for(int i=1;i&lt;=n;i++)
+			ans=min(ans,dfs(i,i)+1);
+		cout&lt;&lt;ans&lt;&lt;'\n';
+	}
+	return 0;
+}
+
+/*
+样例
+3
+1
+2
+1 2
+10
+2 4
+2 1
+5 7
+3 10
+8 6
+6 1
+1 3
+4 7
+9 6
+输出
+0
+1
+2
+*/
+</code></pre>
+<h5 id="d2-hard-ver">D2 hard ver.</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define INF INT_MAX
+#define LINF LLONG_MAX 
+#define endl '\n' 
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+const int MAX_N = 200010;
+
+int T;
+int n;
+vector&lt;int&gt; G[MAX_N]; 
+
+int dfs(int u,int fa){
+	int s=0,cnt=0;
+	for(auto i:G[u]){
+		if(i==fa)
+			continue;
+		int res=dfs(i,u);
+		s+=res;
+		//统计子树个数 
+		if(res==0)
+			cnt++;
+	}
+	//返回所有子树和+子树个数-1（因为只能有一个子树不放结点 
+	return s+max(0,cnt-1);
+}
+
+int main(){
+	freopen(&quot;1.in&quot;, &quot;r&quot;, stdin);
+	ios_base::sync_with_stdio(false);
+	cout.tie(0);
+	cin.tie(0);
+	//freopen(&quot;1.out&quot;, &quot;w&quot;, stdout);
+	cin&gt;&gt;T;
+	while(T--){
+		cin&gt;&gt;n;
+		for(int i=1;i&lt;=n;i++)
+			G[i].clear();
+		for(int i=1;i&lt;n;i++){
+			int u,v;
+			cin&gt;&gt;u&gt;&gt;v;
+			G[u].push_back(v);
+			G[v].push_back(u);
+		}
+		int ma=0;
+		for(int i=1;i&lt;=n;i++){
+			int si=G[i].size();
+			ma=max(ma,si); 
+		}
+		if(n==1){
+			cout&lt;&lt;0&lt;&lt;'\n';
+			continue;
+		}
+		if(ma&lt;3){
+			cout&lt;&lt;1&lt;&lt;'\n';
+			continue;
+		}
+		for(int i=1;i&lt;=n;i++)
+			if(G[i].size()&gt;=3){
+				cout&lt;&lt;dfs(i,i)&lt;&lt;'\n';
+				break;
+			}
+	}
+	return 0;
+}
+
+/*
+样例
+3
+1
+2
+1 2
+10
+2 4
+2 1
+5 7
+3 10
+8 6
+6 1
+1 3
+4 7
+9 6
+输出
+0
+1
+2
+*/
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F">题意</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a>
+<ul>
+<li><a href="#d1-easy-ver">D1 easy ver.</a></li>
+<li><a href="#d2-hard-ver">D2 hard ver.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://cm4k3r.cn/post/yiqiantibutijihua3/">
+              <h3 class="post-title">
+                算法 | 一千题补题计划(3/1000) CF1688E-Railway System
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <a href="/">kongfang</a>
+  <a class="rss" href="https://cm4k3r.cn/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,258 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>算法 | 一千题补题计划(3/1000) CF1688E-Railway System | kongfang</title>
+<link rel="shortcut icon" href="https://cm4k3r.cn/favicon.ico?v=1655674720601">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cm4k3r.cn/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="算法 | 一千题补题计划(3/1000) CF1688E-Railway System | kongfang - Atom Feed" href="https://cm4k3r.cn/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Codeforces Round #796 (Div. 2) E. Railway System 题解
+
+E. Railway System
+题意
+给定一图有nnn个节点mmm条边，每次交互可以输出一个长度为mmm的010101串sss，若..." />
+    <meta name="keywords" content="算法" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://cm4k3r.cn">
+  <img class="avatar" src="https://cm4k3r.cn/images/avatar.png?v=1655674720601" alt="">
+  </a>
+  <h1 class="site-title">
+    kongfang
+  </h1>
+  <p class="site-description">
+    不管风吹浪打，胜似闲庭信步。——李德胜
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="/post/firstpage" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              算法 | 一千题补题计划(3/1000) CF1688E-Railway System
+            </h2>
+            <div class="post-info">
+              <span>
+                2022 20th June 05:36 Monday
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://cm4k3r.cn/tag/algorithm/" class="post-tag">
+                  # 算法
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>Codeforces Round #796 (Div. 2) E. Railway System 题解</p>
+<!-- more -->
+<p><a href="https://codeforces.com/contest/1688/problem/E">E. Railway System</a></p>
+<h4 id="题意">题意</h4>
+<p>给定一图有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个节点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>条边，每次交互可以输出一个长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>01</mn></mrow><annotation encoding="application/x-tex">01</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">1</span></span></span></span>串<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>，若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">s_i=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>则第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>条边激活，若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s_i=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>则第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>条边失效。对于每次交互，会返回一个值，表示图中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>条边在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>对应的状态下的最大生成森林边权和。求该图对应的最小生成森林。最多查询<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>m</mi></mrow><annotation encoding="application/x-tex">2m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">m</span></span></span></span>次。</p>
+<p>输入：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>?</mo><mtext> </mtext><mi>s</mi></mrow><annotation encoding="application/x-tex">?\space s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mclose">?</span><span class="mspace"> </span><span class="mord mathdefault">s</span></span></span></span>——表示图中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>条边的状态与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>对应，返回此时图的最大生成森林边权和</p>
+<p>输出：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>!</mo><mtext> </mtext><mi>a</mi><mi>n</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">!\space ans</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mclose">!</span><span class="mspace"> </span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span></span></span></span>——表示图的最小生成森林边权和</p>
+<h4 id="思路">思路</h4>
+<p>先查出每条边的权值，再利用克鲁斯卡尔求最小生成树的边权和。</p>
+<p>首先记录图的最大生成森林边权和为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">last</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span></span></span></span>。循环每次操作如下：找到权值最小边，如果权值为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">INF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span>，结束循环；否则，将该边激活，查询当前图最大生成森林边权和的增量是否等于当前边权值，不等于说明遇到了环，不选该边，等于就更新<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">last</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span></span></span></span>为所查最大生成森林边权和，每次循环结束将所查边的权值设为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">INF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span>。</p>
+<p>最终图的最小生成森林边权和就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">last</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span></span></span></span>。</p>
+<p><strong>复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span></strong></p>
+<p>初始查询每条边的权值、检查加边后有无环，两部分代码都是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span></p>
+<h4 id="代码">代码</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define INF INT_MAX
+#define LINF LLONG_MAX 
+#define endl '\n' 
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+const int MAX_N = 510;
+
+int n,m;
+int w[MAX_N];
+
+int query(string s){
+	cout&lt;&lt;&quot;? &quot;&lt;&lt;s&lt;&lt;'\n';
+	int x;
+	cin&gt;&gt;x;
+	return x;
+}
+
+int main(){
+	freopen(&quot;1.in&quot;, &quot;r&quot;, stdin);
+	ios_base::sync_with_stdio(false);
+	cout.tie(0);
+	cin.tie(0);
+	//freopen(&quot;1.out&quot;, &quot;w&quot;, stdout);
+	cin&gt;&gt;n&gt;&gt;m;
+	string s(m,'0');
+	for(int i=0;i&lt;m;i++){
+		s[i]='1';
+		w[i]=query(s);
+		s[i]='0';
+	}
+	int last=0;
+	while(1){
+		int id=min_element(w,w+m)-w;
+		if(w[id]==INF)
+			break;
+		s[id]='1';
+		int now=query(s);
+		if(now-last!=w[id])
+			s[id]='0';
+		else
+			last=now;
+		w[id]=INF;
+	}
+	cout&lt;&lt;&quot;! &quot;&lt;&lt;last&lt;&lt;'\n';
+	return 0;
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F">题意</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://cm4k3r.cn/post/yiqiantibutijihua2/">
+              <h3 class="post-title">
+                算法 | 一千题补题计划(2/1000) CF1670E-Hemose on the Tree
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <a href="/">kongfang</a>
+  <a class="rss" href="https://cm4k3r.cn/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

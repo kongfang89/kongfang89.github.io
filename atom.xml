@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cm4k3r.cn</id>
     <title>kongfang</title>
-    <updated>2022-06-28T22:33:38.018Z</updated>
+    <updated>2022-07-04T08:30:37.570Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cm4k3r.cn"/>
     <link rel="self" href="https://cm4k3r.cn/atom.xml"/>
@@ -11,14 +11,14 @@
     <icon>https://cm4k3r.cn/favicon.ico</icon>
     <rights>All rights reserved 2022, kongfang</rights>
     <entry>
-        <title type="html"><![CDATA[算法 | 一千题补题计划(10/1000) CF1668D-Optimal Partition]]></title>
-        <id>https://cm4k3r.cn/post/yiqiantibutijihua10/</id>
-        <link href="https://cm4k3r.cn/post/yiqiantibutijihua10/">
+        <title type="html"><![CDATA[算法 | 一千题补题计划(14/1000) CF1657E-Star MST]]></title>
+        <id>https://cm4k3r.cn/post/yiqiantibutijihua14/</id>
+        <link href="https://cm4k3r.cn/post/yiqiantibutijihua14/">
         </link>
-        <updated>2022-06-28T22:22:41.000Z</updated>
-        <summary type="html"><![CDATA[<p>Codeforces Round #783 (Div. 2) D. Optimal Partition 题解</p>
+        <updated>2022-07-04T08:10:45.000Z</updated>
+        <summary type="html"><![CDATA[<p>Educational Codeforces Round 125 (Rated for Div. 2) E. Star MST 题解</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>Codeforces Round #783 (Div. 2) D. Optimal Partition 题解</p>
+        <content type="html"><![CDATA[<p>Educational Codeforces Round 125 (Rated for Div. 2) E. Star MST 题解</p>
 ]]></content>
     </entry>
 </feed>
